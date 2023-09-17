@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test Page</title>
+</head>
+<body>
+<h1>This is testPage</h1>
+<form method="post" action="">
+    {% csrf_token %}
+    <ol>
+    {% for q in questions %}
+
+        <li>{{ q.ques }}</li>
+
+        <p>
+    <ol type="a">
+        <li><input type="radio" name={{ q.id }} id="opt1" value = "{{ q.opt1 }}" required>
+            <label for="opt1">{{ q.opt1 }}</label></li>
+        <li><input type="radio" name={{ q.id }} id="opt2" value = "{{ q.opt2 }}">
+            <label for="opt1">{{ q.opt2 }}</label></li>
+        <li><input type="radio" name={{ q.id }} id="opt3" value = "{{ q.opt3 }}">
+            <label for="opt1">{{ q.opt3 }}</label></li>
+        <li><input type="radio" name={{ q.id }} id="opt4" value = "{{ q.opt4 }}">
+            <label for="opt1">{{ q.opt4 }}</label></li>
+    </ol>
+        </p>
+    {% endfor %}
+         </ol>
+    <button type="submit" value="Submit">Submit</button>
+    <br><br>
+    {{ all }}
+</form>
+</body>
+</html>
